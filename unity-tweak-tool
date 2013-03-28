@@ -28,30 +28,62 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program; if not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
-
+import sys
 import argparse
 import UnityTweakTool
 
-parser = argparse.ArgumentParser()
-optgrp = parser.add_mutually_exclusive_group()
+from gi.repository import GLib,Gtk,Gio
 
-optgrp.add_argument('-u', '--unity', help='Start in the Unity tab', action='store_true')
-optgrp.add_argument('-w', '--winmng', help='Start in the WindowManager tab', action='store_true')
-optgrp.add_argument('-a', '--appearance', help='Start in the appearance tab', action='store_true')
-optgrp.add_argument('-s', '--system', help='Start in the system tab', action='store_true')
-optgrp.add_argument('-r', '--restore', help='Restore settings to its default values', action='store_true')
 
-args=parser.parse_args()
+def on_utt_activate(app):
+    windows = app.get_windows()
+    if windows:
+        windows[0].present()
+    else:
+        window=UnityTweakTool.utt_init()
+        window.show()
+        app.add_window(window)
+    return 0
+ 
+def on_command_line(app,cl,*args):
+    parser = argparse.ArgumentParser()
+    optgrp = parser.add_mutually_exclusive_group()
 
-if args.unity:
-    UnityTweakTool.init(1)
-elif args.winmng:
-    UnityTweakTool.init(2)
-elif args.appearance:
-    UnityTweakTool.init(3)
-elif args.system:
-    UnityTweakTool.init(4)
-elif args.restore:
-    UnityTweakTool.reset_all()
-else:
-    UnityTweakTool.init()
+    optgrp.add_argument('-u', '--unity', help='Start in the Unity tab', action='store_true')
+    optgrp.add_argument('-w', '--winmng', help='Start in the WindowManager tab', action='store_true')
+    optgrp.add_argument('-a', '--appearance', help='Start in the appearance tab', action='store_true')
+    optgrp.add_argument('-s', '--system', help='Start in the system tab', action='store_true')
+    optgrp.add_argument('-r', '--restore', help='Restore settings to its default values', action='store_true')
+
+    args=parser.parse_args(cl.get_arguments()[1:])
+        
+    # Default to starting in overview page
+    page=0
+
+    if args.unity:
+        page=1
+    elif args.winmng:
+        page=2
+    elif args.appearance:
+        page=3
+    elif args.system:
+        page=4
+    elif args.restore:
+        UnityTweakTool.reset_all()
+
+    windows = app.get_windows()
+    if windows:
+        windows[0].present()
+    else:
+        window=UnityTweakTool.utt_init()
+        window.show()
+        app.add_window(window)
+    UnityTweakTool.switch_to(page)
+    return 0
+
+utt = Gtk.Application(application_id='org.freyja.utt',
+                        flags = Gio.ApplicationFlags.HANDLES_COMMAND_LINE)
+utt.connect('activate',on_utt_activate)
+utt.connect('command-line',on_command_line)
+utt.run(sys.argv)
+

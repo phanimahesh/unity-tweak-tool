@@ -38,24 +38,30 @@ import logging
 from gi.repository import Gtk
 from UnityTweakTool.config.logging import LOGFILE,LOGFMT,LOGLVL
 
-logger=logging.getLogger('UnityTweakTool')
-logger.setLevel(LOGLVL)
+def setup_logging():
+    logger=logging.getLogger('UnityTweakTool')
+    logger.setLevel(LOGLVL)
 
-_fh=logging.FileHandler(LOGFILE)
-_fh.setLevel(LOGLVL)
+    _fh=logging.FileHandler(LOGFILE)
+    _fh.setLevel(LOGLVL)
 
-_formatter=logging.Formatter(LOGFMT)
+    _formatter=logging.Formatter(LOGFMT)
 
-_fh.setFormatter(_formatter)
-logger.addHandler(_fh)
+    _fh.setFormatter(_formatter)
+    logger.addHandler(_fh)
+    return logger
 
-del _fh, _formatter
+##########################################################################
 
-def pid_lock_exists():
-    return False
-# TODO : implement this.
-
-def connectpages():
+def utt_init():
+    print('Initialising...')
+    from UnityTweakTool.config.data import get_data_path
+    builder=Gtk.Builder()
+    ui=os.path.join(get_data_path(),'unitytweak.ui')
+    builder.add_from_file(ui)
+    global notebook
+    notebook=builder.get_object('nb_unitytweak')
+# Connect all the pages.
     from UnityTweakTool.section.overview import Overview
     from UnityTweakTool.section.unity import Unity
     from UnityTweakTool.section.windowmanager import WindowManager
@@ -65,8 +71,8 @@ def connectpages():
     for section in sections:
         id=notebook.append_page(section.page,None)
         assert id is not -1
-
-def connecthandlers(builder):
+# Connect the handlers
+#    notebook.set_current_page(page)
     handler={}
     def show_overview(*args,**kwargs):
         notebook.set_current_page(0)
@@ -111,20 +117,13 @@ def connecthandlers(builder):
     from UnityTweakTool.about import About
     handler['on_menuimage_about_activate']=lambda *args: About()
     builder.connect_signals(handler)
-##########################################################################
-def init(page=0):
-    if pid_lock_exists():
-        return
-    from UnityTweakTool.config.data import get_data_path
-    global notebook
-    builder=Gtk.Builder()
-    ui=os.path.join(get_data_path(),'unitytweak.ui')
-    builder.add_from_file(ui)
-    notebook=builder.get_object('nb_unitytweak')
-    connectpages()
-    notebook.set_current_page(page)
-    connecthandlers(builder)
-    builder.get_object('unitytweak_main').show_all()
-    builder.get_object('unitytweak_main').connect('delete-event',Gtk.main_quit)
-    Gtk.main()
 
+    window=builder.get_object('unitytweak_main')
+   # window.connect('delete-event',Gtk.main_quit)
+    return window
+
+def switch_to(page):
+    notebook.set_current_page(page)
+    if page is not 0:
+        notebook.get_nth_page(page).set_current_page(0)
+    return 0
