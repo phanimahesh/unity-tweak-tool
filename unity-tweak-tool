@@ -46,6 +46,11 @@ def on_utt_activate(app):
     return 0
  
 def on_command_line(app,cl,*args):
+    if cl.get_is_remote():
+        # This is being executed by a primary instance.
+        # A second instance was started which made this happen.
+        # Print a message on the second instance's stdout'
+        cl.do_print_literal(cl,"\n\tAnother instance of Unity Tweak Tool seems to be running.\n\tDelegating the execution to the running instance.\n\tI will wait for it to quit.\n")
     parser = argparse.ArgumentParser()
     optgrp = parser.add_mutually_exclusive_group()
 
@@ -86,4 +91,6 @@ utt = Gtk.Application(application_id='org.freyja.utt',
 utt.connect('activate',on_utt_activate)
 utt.connect('command-line',on_command_line)
 utt.run(sys.argv)
+if utt.get_is_remote():
+    print("The primary instance exited.\nExiting..\n")
 

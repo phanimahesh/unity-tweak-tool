@@ -119,7 +119,6 @@ def utt_init():
     builder.connect_signals(handler)
 
     window=builder.get_object('unitytweak_main')
-   # window.connect('delete-event',Gtk.main_quit)
     return window
 
 def switch_to(page):
