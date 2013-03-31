@@ -57,16 +57,19 @@ def is_valid(*,schema,path=None,key=None):
                 _gs=GSettings[schema]
             except KeyError as e:
                 _gs=Gio.Settings(schema)
+                GSettings[schema]=_gs
             return key in _gs.list_keys()
         else:
             return True
     if schema in all_relocatable_schemas:
         if key is not None:
             assert path is not None, 'Relocatable schemas must be accompanied with path'
+            _gskey=schema+(':'+path if path is not None else '')
             try:
-                _gs=GSettings[schema]
+                _gs=GSettings[_gskey]
             except KeyError as e:
                 _gs=Gio.Settings(schema,path)
+                GSettings[_gskey]=_gs
             return key in _gs.list_keys()
         else:
             return True
@@ -127,3 +130,10 @@ def reset(*,schema,key,path=None):
         GSettings[_gskey]=_gs
     _gs.reset(key)
 
+def get_settings(*,schema,path=None):
+    ''' Return the Gsettings object corresponding to schema,path.
+        Raises KeyError if the settings object is not in the cache.
+        Not to be used outside UnityTweakTool.elements.*
+    '''
+    _gskey=schema+(':'+path if path is not None else '')
+    return GSettings[_gskey]
