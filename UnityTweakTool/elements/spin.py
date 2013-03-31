@@ -55,8 +55,7 @@ class SpinButton:
                 )
         except AssertionError as e:
             self.disabled = True
-# TODO : set the range mased on the config min-max
-#        self.ui.
+        self.ui.set_range(self.min,self.max)
         logger.debug('Initialised a spin with id {self.id} to control key {self.key} of type {self.type} in schema {self.schema} with path {self.path}'.format(self=self))
 
 
