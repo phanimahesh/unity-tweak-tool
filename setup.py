@@ -37,13 +37,13 @@ from subprocess import call
 try:
     import DistUtilsExtra.auto
 except ImportError:
-    print >> sys.stderr, 'To build unity-tweak-tool you need https://launchpad.net/python-distutils-extra'
+    print >> sys.stderr, 'To build unity-tweak-tool you need python3-distutils-extra (https://launchpad.net/python-distutils-extra)'
     sys.exit(1)
 assert DistUtilsExtra.auto.__version__ >= '2.18', 'needs DistUtilsExtra.auto >= 2.18'
 
 def update_config_old(libdir, values = {}):
 
-    filename = os.path.join(libdir, 'UnityTweakTool/section/sphagetti/unitytweakconfig.py')
+    filename = os.path.join(libdir, 'UnityTweakTool/section/spaghetti/unitytweakconfig.py')
     oldvalues = {}
     try:
         fin = open(filename, 'r')
@@ -185,7 +185,7 @@ data_files.extend(find_mo_files())
 
 DistUtilsExtra.auto.setup(
     name='unity-tweak-tool',
-    version='0.0.4',
+    version='0.0.5',
     license='GPL-3',
     author='Freyja Development Team',
     #author_email='email@ubuntu.com',

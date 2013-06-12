@@ -29,22 +29,26 @@
 # You should have received a copy of the GNU General Public License along with
 # this program; if not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
 
-''' Definitions for ColorChooser element. '''
+''' Definitions for ToggleButton element. '''
 from UnityTweakTool.backends import gsettings
-from gi.repository import Gdk
 
 import logging
-logger=logging.getLogger('UnityTweakTool.elements.colorchooser')
+logger=logging.getLogger('UnityTweakTool.elements.togglebutton')
 
-class ColorChooser:
+class ToggleButton:
     def __init__(self,controlObj):
-        ''' Initialise a ColorChooser element from a dictionary'''
+        ''' Initialise a Toggle Button element from a dictionary'''
         self.id         = controlObj['id']
+        self.builder    = controlObj['builder']
         self.ui         = controlObj['builder'].get_object(controlObj['id'])
         self.schema     = controlObj['schema']
         self.path       = controlObj['path']
         self.key        = controlObj['key']
-        self.type       = 'string'
+        self.type       = controlObj['type']
+        self.map        = controlObj['map']
+        self.invmap     = dict([ (v,k) for (k,v) in self.map.items() ])
+        self.dependants = controlObj['dependants']
+        self.active     = False
         self.disabled   = False
         try:
             assert gsettings.is_valid(
@@ -54,12 +58,11 @@ class ColorChooser:
                 )
         except AssertionError as e:
             self.disabled = True
-        self.color=Gdk.RGBA()
-        logger.debug('Initialised a colorchooser with id {self.id} to control key {self.key} of type {self.type} in schema {self.schema} with path {self.path}'.format(self=self))
+        logger.debug('Initialised a toggle button with id {self.id} to control key {self.key} of type {self.type} in schema {self.schema} with path {self.path}'.format(self=self))
 
     def register(self,handler):
         ''' register handler on a handler object '''
-        handler['on_%s_color_set'%self.id]=self.handler
+        handler['on_%s_toggled'%self.id]=self.handler
         logger.debug('Handler for {self.id} registered'.format(self=self))
 
     def refresh(self):
@@ -68,43 +71,30 @@ class ColorChooser:
         if self.disabled:
             self.ui.set_sensitive(False)
             return
-        color = gsettings.get(
-                schema=self.schema,
-                path  =self.path,
-                key   =self.key,
-                type  =self.type
-                )
-        components =(
-                    int(color[1:3],16),
-                    int(color[3:5],16),
-                    int(color[5:7],16),
-                    int(color[7:9],16)/255
+        self.active=self.map[
+                gsettings.get(
+                    schema=self.schema,
+                    path  =self.path,
+                    key   =self.key,
+                    type  =self.type
                     )
-        colorspec='rgba(%s,%s,%s,%f)'%components
-        valid = Gdk.RGBA.parse(self.color,colorspec)
-        if valid:
-            self.ui.set_rgba(self.color)
-
-    def get_color(self):
-        logger.debug('Getting color for {self.id}'.format(self=self))
-# This try catch is a fix for LP 1165627
-        try:
-            self.color = self.ui.get_rgba()
-        except TypeError:
-            self.ui.get_rgba(self.color)
-        return '#{:02x}{:02x}{:02x}{:02x}'.format(*[round(x*255) for x in [self.color.red, self.color.green, self.color.blue, self.color.alpha]])
+                ]
+        self.ui.set_active(self.active)
+        self.handledependants()
 
     def handler(self,*args,**kwargs):
         ''' handle toggle signals '''
         if self.disabled:
             return
+        self.active=self.ui.get_active()
         gsettings.set(
             schema=self.schema,
             path=self.path,
             key=self.key,
             type=self.type,
-            value=self.get_color()
+            value=self.invmap[self.active]
             )
+        self.handledependants()
         logger.info('Handler for {self.id} executed'.format(self=self))
 
     def reset(self):
@@ -113,3 +103,8 @@ class ColorChooser:
             return
         gsettings.reset(schema=self.schema,path=self.path,key=self.key)
         logger.debug('Key {self.key} in schema {self.schema} and path {self.path} reset.'.format(self=self))
+
+    def handledependants(self):
+        status=False if self.disabled else self.active
+        for element in self.dependants:
+            self.builder.get_object(element).set_sensitive(status)

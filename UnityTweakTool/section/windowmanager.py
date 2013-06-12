@@ -36,7 +36,7 @@ from UnityTweakTool.elements.checkbox import CheckBox
 from UnityTweakTool.elements.spin import SpinButton
 from UnityTweakTool.elements.switch import Switch
 
-from UnityTweakTool.section.sphagetti.compiz import Compizsettings as SphagettiCompizSettings
+from UnityTweakTool.section.spaghetti.compiz import Compizsettings as SpaghettiCompizSettings
 from UnityTweakTool.elements.option import Option,HandlerObject
 
 from collections import defaultdict
@@ -67,16 +67,6 @@ cbox_opengl=ComboBox({
     'map'       : {0:0,1:1,2:2}
 })
 
-check_synctovblank= CheckBox({
-    'id'        : 'check_synctovblank',
-    'builder'   : WindowManager.builder,
-    'schema'    : 'org.compiz.opengl',
-    'path'      : '/org/compiz/profiles/unity/plugins/opengl/',
-    'key'       : 'sync-to-vblank',
-    'type'      : 'boolean',
-    'map'       : {True:True,False:False},
-    'dependants': []
-})
 
 # TODO:
 # TypeError: unhashable type: 'list'
@@ -132,8 +122,7 @@ check_synctovblank= CheckBox({
 # cbox_unminimize_animation
 # list_compiz_general_keys_accelerators 
 
-GeneralIcons=Tab([cbox_opengl,
-				  check_synctovblank ]) #,
+GeneralIcons=Tab([cbox_opengl]) #,
 				  # cbox_minimize_animation,
 				  # cbox_unminimize_animation])
 
@@ -319,8 +308,8 @@ WindowManager.add_page(WindowSpreadIcons)
 #WindowManager.add_page(WindowSnappingIcons)
 WindowManager.add_page(AdditionalIcons)
 
-# XXX : Sphagetti bridge
-wmsettings=HandlerObject(SphagettiCompizSettings(WindowManager.builder))
+# XXX : Spaghetti bridge
+wmsettings=HandlerObject(SpaghettiCompizSettings(WindowManager.builder))
 WindowManager.add_page(wmsettings)
 
 # After all pages are added, the section needs to be registered to start listening for events

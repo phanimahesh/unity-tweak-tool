@@ -254,7 +254,6 @@ class Compizsettings ():
         del model, zoom_in_key, iter_zoom_in_key, zoom_out_key, iter_zoom_out_key
 
         self.ui['cbox_opengl'].set_active(gsettings.opengl.get_int('texture-filter'))
-        self.ui['check_synctovblank'].set_active(gsettings.opengl.get_boolean('sync-to-vblank'))
 
         model = self.ui['list_compiz_general_keys_accelerators']
 
@@ -275,59 +274,110 @@ class Compizsettings ():
 
         # Animations
         unminimize_value = gsettings.animation.get_strv('unminimize-effects')
+        dependants = ['cbox_minimize_animation',
+                    'l_minimize_animation',
+                    'cbox_unminimize_animation',
+                    'l_unminimize_animation']
 
         if unminimize_value == ['animation:None']:
             self.ui['cbox_unminimize_animation'].set_active(0)
+            self.ui['switch_window_animations'].set_active(False)
+            self.ui.unsensitize(dependants)
         elif unminimize_value == ['animation:Random']:
             self.ui['cbox_unminimize_animation'].set_active(1)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Curved Fold']:
             self.ui['cbox_unminimize_animation'].set_active(2)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Fade']:
             self.ui['cbox_unminimize_animation'].set_active(3)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Glide 1']:
             self.ui['cbox_unminimize_animation'].set_active(4)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Glide 2']:
             self.ui['cbox_unminimize_animation'].set_active(5)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Horizontal Folds']:
             self.ui['cbox_unminimize_animation'].set_active(6)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Magic Lamp']:
             self.ui['cbox_unminimize_animation'].set_active(7)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Magic Lamp Wavy']:
             self.ui['cbox_unminimize_animation'].set_active(8)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Sidekick']:
             self.ui['cbox_unminimize_animation'].set_active(9)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif unminimize_value == ['animation:Zoom']:
             self.ui['cbox_unminimize_animation'].set_active(10)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         else:
             self.ui['cbox_unminimize_animation'].set_active(0)
+            self.ui['switch_window_animations'].set_active(False)
+            self.ui.unsensitize(dependants)
         del unminimize_value
 
         minimize_value = gsettings.animation.get_strv('minimize-effects')
 
         if minimize_value == ['animation:None']:
             self.ui['cbox_minimize_animation'].set_active(0)
+            self.ui['switch_window_animations'].set_active(False)
+            self.ui.unsensitize(dependants)
         elif minimize_value == ['animation:Random']:
             self.ui['cbox_minimize_animation'].set_active(1)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Curved Fold']:
             self.ui['cbox_minimize_animation'].set_active(2)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Fade']:
             self.ui['cbox_minimize_animation'].set_active(3)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Glide 1']:
             self.ui['cbox_minimize_animation'].set_active(4)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Glide 2']:
             self.ui['cbox_minimize_animation'].set_active(5)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Horizontal Folds']:
             self.ui['cbox_minimize_animation'].set_active(6)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Magic Lamp']:
             self.ui['cbox_minimize_animation'].set_active(7)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Magic Lamp Wavy']:
             self.ui['cbox_minimize_animation'].set_active(8)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         elif minimize_value == ['animation:Sidekick']:
             self.ui['cbox_minimize_animation'].set_active(9)
+            self.ui['switch_window_animations'].set_active(True)
         elif minimize_value == ['animation:Zoom']:
             self.ui['cbox_minimize_animation'].set_active(10)
+            self.ui['switch_window_animations'].set_active(True)
+            self.ui.sensitize(dependants)
         else:
             self.ui['cbox_minimize_animation'].set_active(0)
+            self.ui['switch_window_animations'].set_active(False)
+            self.ui.unsensitize(dependants)
         del minimize_value
 
         # ===== Workspace settings ===== #
@@ -525,9 +575,6 @@ class Compizsettings ():
     def on_cbox_opengl_changed(self, widget, udata = None):
         gsettings.opengl.set_int('texture-filter', self.ui['cbox_opengl'].get_active())
 
-    def on_check_synctovblank_toggled(self, widget, udata = None):
-        gsettings.opengl.set_boolean('sync-to-vblank', self.ui['check_synctovblank'].get_active())
-
     def on_craccel_compiz_general_keys_accel_edited(self, craccel, path, key, mods, hwcode, model = None):
         model = self.ui['list_compiz_general_keys_accelerators']
         accel = Gtk.accelerator_name(key, mods)
@@ -551,6 +598,23 @@ class Compizsettings ():
             gsettings.core.set_string('show-desktop-key', "Disabled")
 
     #-----General: Animations
+
+    def on_switch_window_animations_active_notify(self, widget, udata = None):
+        dependants = ['cbox_minimize_animation',
+                    'l_minimize_animation',
+                    'cbox_unminimize_animation',
+                    'l_unminimize_animation']
+
+        if self.ui['switch_window_animations'].get_active() == True:
+            self.ui.sensitize(dependants)
+            maximize_combobox_text = self.ui['cbox_minimize_animation'].get_active_text()
+            gsettings.animation.set_strv('minimize-effects', ['animation:'+maximize_combobox_text])
+            minimize_combobox_text = self.ui['cbox_unminimize_animation'].get_active_text()
+            gsettings.animation.set_strv('unminimize-effects', ['animation:'+minimize_combobox_text])
+        else:
+            self.ui.unsensitize(dependants)
+            gsettings.animation.set_strv('minimize-effects', ['animation:None'])
+            gsettings.animation.set_strv('unminimize-effects', ['animation:None'])
 
     def on_cbox_unminimize_animation_changed(self, widget, udata = None):
         combobox_text = self.ui['cbox_unminimize_animation'].get_active_text()
@@ -782,7 +846,7 @@ class Compizsettings ():
         del value
 
     def on_colorbutton_resize_outline_color_set(self, widget, udata=None):
-        colorhash = gsettings.color_to_hash(self.ui['colorbutton_resize_outline'].get_color(),aplha=1)
+        colorhash = gsettings.color_to_hash(self.ui['colorbutton_resize_outline'].get_color(),alpha=1)
         gsettings.resize.set_string('border-color', colorhash)
 
     def on_colorbutton_resize_fill_color_set(self, widget, udata=None):

@@ -39,10 +39,13 @@ from UnityTweakTool.elements.scale import Scale
 from UnityTweakTool.elements.spin import SpinButton
 from UnityTweakTool.elements.switch import Switch
 
-from UnityTweakTool.section.sphagetti.unity import Unitysettings as SphagettiUnitySettings
+from UnityTweakTool.section.spaghetti.unity import Unitysettings as SpaghettiUnitySettings
 from UnityTweakTool.elements.option import Option,HandlerObject
 
+from UnityTweakTool.backends import gsettings
+
 from collections import defaultdict
+from gi.repository import Gtk
 
 Unity=Section(ui='unity.ui',id='nb_unitysettings')
 
@@ -80,7 +83,7 @@ radio_reveal_left=Radio({
     'id'        : 'radio_reveal_left',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'reveal-trigger',
     'type'      : 'int',
     'group'     : 'radio_reveal_topleft',
@@ -92,7 +95,7 @@ radio_reveal_topleft=Radio({
     'id'        : 'radio_reveal_topleft',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'reveal-trigger',
     'type'      : 'int',
     'group'     : 'radio_reveal_topleft',
@@ -100,23 +103,50 @@ radio_reveal_topleft=Radio({
     'dependants': []
 })
 
-sw_launcher_transparent= Switch({
+sw_launcher_transparent_dummy= Switch({
     'id'        : 'sw_launcher_transparent',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
     'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'launcher-opacity',
     'type'      : 'double',
-    'map'       : defaultdict(lambda:True,{1:True,0:False}),
+    'map'       : defaultdict(lambda:True,{0.66:True,1:False}),
+    # XXX : Use option object and correct this. switching on transparency will
+    # always set it at 0.66.
     'dependants': ['l_launcher_transparency_scale',
                    'sc_launcher_transparency']
 })
+
+def on_sw_launcher_transparent_active_notify(*args,**kwargs):
+    if sw_launcher_transparent_dummy.disabled:
+        return
+    active =sw_launcher_transparent_dummy.ui.get_active()
+    if active:
+        val =Unity.builder.get_object('sc_launcher_transparency').get_value()
+    else:
+        val = 1
+    gsettings.set(
+        schema=sw_launcher_transparent_dummy.schema,
+        path=sw_launcher_transparent_dummy.path,
+        key=sw_launcher_transparent_dummy.key,
+        type=sw_launcher_transparent_dummy.type,
+        value= val
+        )
+    for element in sw_launcher_transparent_dummy.dependants:
+        Unity.builder.get_object(element).set_sensitive(active)
+
+sw_launcher_transparent = Option({
+    'handler': on_sw_launcher_transparent_active_notify,
+    'reset' : sw_launcher_transparent_dummy.reset,
+    'handlerid': 'on_sw_launcher_transparent_active_notify',
+    'refresh' : sw_launcher_transparent_dummy.refresh
+    })
 
 radio_launcher_visibility_all=Radio({
     'id'        : 'radio_launcher_visibility_all',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'num-launchers',
     'type'      : 'int',
     'group'     : 'radio_launcher_visibility_primary',
@@ -128,7 +158,7 @@ radio_launcher_visibility_primary=Radio({
     'id'        : 'radio_launcher_visibility_primary',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'num-launchers',
     'type'      : 'int',
     'group'     : 'radio_launcher_visibility_primary',
@@ -179,7 +209,6 @@ spin_launcher_icon_size=SpinButton({
 
 # TODO:
 
-# sc_reveal_sensitivity
 # sc_launcher_transparency
 # radio_launcher_color_cham
 # radio_launcher_color_cus
@@ -199,13 +228,28 @@ sc_reveal_sensitivity=Scale({
      'id'     : 'sc_reveal_sensitivity',
      'builder': Unity.builder,
      'schema' : 'org.compiz.unityshell',
-     'path'   : '/org/compiz/profiles/unity/plugins/unityshell',
+     'path'   : '/org/compiz/profiles/unity/plugins/unityshell/',
      'key'    : 'edge-responsiveness',
      'type'   : 'double',
      'min'    : 0.2,
      'max'    : 8.0,
-     'ticks'  : [] #[2.0] XXX : Correct this or get rid of ticks altogether
+     'ticks'  : [(2.0,Gtk.PositionType.BOTTOM,None)] # XXX : Correct this or get rid of ticks altogether
  })
+
+
+sc_launcher_transparency=Scale({
+     'id'     : 'sc_launcher_transparency',
+     'builder': Unity.builder,
+     'schema' : 'org.compiz.unityshell',
+     'path'   : '/org/compiz/profiles/unity/plugins/unityshell/',
+     'key'    : 'launcher-opacity',
+     'type'   : 'double',
+     'min'    : 0.2, # TODO : Check these min max. Most prolly wrong.
+     'max'    : 8.0, # But fine since they are ignored anyway.
+     'ticks'  : [(0.666, Gtk.PositionType.BOTTOM, None)]
+
+ })
+
 
 
 LauncherIcons=Tab([sw_launcher_hidemode,
@@ -219,7 +263,8 @@ LauncherIcons=Tab([sw_launcher_hidemode,
                    cbox_launch_animation,
                    cbox_launcher_icon_colouring,
                    spin_launcher_icon_size,
-                 #  sc_reveal_sensitivity,
+                   sc_reveal_sensitivity,
+                   sc_launcher_transparency,
                    color_launcher_color_cus])
 
 #=============== DASH ==========================
@@ -242,7 +287,7 @@ radio_dash_blur_smart=Radio({
     'id'        : 'radio_dash_blur_smart',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'dash-blur-experimental',
     'type'      : 'int',
     'group'     : 'radio_dash_blur_static',
@@ -254,7 +299,7 @@ radio_dash_blur_static=Radio({
     'id'        : 'radio_dash_blur_static',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
-    'path'      : '/org/compiz/profiles/unity/plugins/unityshell',
+    'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'dash-blur-experimental',
     'type'      : 'int',
     'group'     : 'radio_dash_blur_static',
@@ -334,7 +379,7 @@ spin_menu_visible=SpinButton({
     'max'    : 10
 })
 
-sw_transparent_panel= Switch({
+sw_transparent_panel_dummy = Switch({
     'id'        : 'sw_transparent_panel',
     'builder'   : Unity.builder,
     'schema'    : 'org.compiz.unityshell',
@@ -346,6 +391,32 @@ sw_transparent_panel= Switch({
                    'l_transparent_panel',
                    'check_panel_opaque']
 })
+
+def on_sw_transparent_panel_active_notify(*args,**kwargs):
+    if sw_transparent_panel_dummy.disabled:
+        return
+    active =sw_transparent_panel_dummy.ui.get_active()
+    if active:
+        val =Unity.builder.get_object('sc_panel_transparency').get_value()
+    else:
+        val = 1
+    gsettings.set(
+        schema=sw_transparent_panel_dummy.schema,
+        path=sw_transparent_panel_dummy.path,
+        key=sw_transparent_panel_dummy.key,
+        type=sw_transparent_panel_dummy.type,
+        value= val
+        )
+    for element in sw_transparent_panel_dummy.dependants:
+        Unity.builder.get_object(element).set_sensitive(active)
+
+sw_transparent_panel = Option({
+    'handler': on_sw_transparent_panel_active_notify,
+    'reset' : sw_transparent_panel_dummy.reset,
+    'handlerid': 'on_sw_transparent_panel_active_notify',
+    'refresh' : sw_transparent_panel_dummy.refresh
+    })
+
 
 check_panel_opaque= CheckBox({
     'id'        : 'check_panel_opaque',
@@ -737,8 +808,8 @@ Unity.add_page(SwitcherIcons)
 Unity.add_page(WebappsIcons)
 Unity.add_page(AdditionalIcons)
 
-# XXX : Sphagetti bridge
-unitysettings=HandlerObject(SphagettiUnitySettings(Unity.builder))
+# XXX : Spaghetti bridge
+unitysettings=HandlerObject(SpaghettiUnitySettings(Unity.builder))
 Unity.add_page(unitysettings)
 # After all pages are added, the section needs to be registered to start listening for events
 Unity.register()

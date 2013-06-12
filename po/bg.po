@@ -1,22 +1,195 @@
-# Bulgarian translation for mechanig
+# Bulgarian translation for unity-tweak-tool
 # Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
-# This file is distributed under the same license as the mechanig package.
+# This file is distributed under the same license as the unity-tweak-tool package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: mechanig\n"
+"Project-Id-Version: unity-tweak-tool\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-20 23:34+0530\n"
-"PO-Revision-Date: 2013-03-10 22:33+0000\n"
-"Last-Translator: Atanas Kovachki <Unknown>\n"
+"POT-Creation-Date: 2013-05-03 11:31-0400\n"
+"PO-Revision-Date: 2013-05-04 17:49+0000\n"
+"Last-Translator: George Karavasilev <motorslav@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-21 04:47+0000\n"
-"X-Generator: Launchpad (build 16532)\n"
+"X-Launchpad-Export-Date: 2013-05-04 18:01+0000\n"
+"X-Generator: Launchpad (build 16598)\n"
 
+#: ../UnityTweakTool/utils/unityreset.py:41
+msgid "Initialising Unity reset"
+msgstr ""
+
+#: ../UnityTweakTool/utils/unityreset.py:42
+msgid "Killing Unity and Compiz"
+msgstr ""
+
+#: ../UnityTweakTool/utils/unityreset.py:45
+msgid "Resetting compiz plugins"
+msgstr ""
+
+#: ../UnityTweakTool/utils/unityreset.py:47
+msgid "Resetting more compiz plugins"
+msgstr ""
+
+#: ../UnityTweakTool/utils/unityreset.py:49
+msgid "Resetting Unity settings"
+msgstr ""
+
+#: ../UnityTweakTool/utils/unityreset.py:51
+msgid "Reset complete. Reloading unity"
+msgstr ""
+
+#. ----- END: Additional -----
+#. ! /usr/bin/env python3
+#: ../data/unitytweak.ui.h:1 ../unity-tweak-tool.desktop.in.h:1
+msgid "Unity Tweak Tool"
+msgstr "Unity Tweak Tool"
+
+#: ../data/unitytweak.ui.h:2
+msgid "_File"
+msgstr "_Файл"
+
+#: ../data/unitytweak.ui.h:3 ../data/overview.ui.h:1
+msgid "Unity"
+msgstr "Юнити"
+
+#: ../data/unitytweak.ui.h:4 ../data/overview.ui.h:2 ../data/unity.ui.h:87
+msgid "Launcher"
+msgstr "Стартер"
+
+#: ../data/unitytweak.ui.h:5 ../data/overview.ui.h:3 ../data/unity.ui.h:111
+msgid "Search"
+msgstr "Търсачка"
+
+#: ../data/unitytweak.ui.h:6 ../data/overview.ui.h:4 ../data/unity.ui.h:156
+msgid "Panel"
+msgstr "Панел"
+
+#: ../data/unitytweak.ui.h:7 ../data/overview.ui.h:5 ../data/unity.ui.h:172
+msgid "Switcher"
+msgstr "Сменявач"
+
+#: ../data/unitytweak.ui.h:8 ../data/overview.ui.h:6 ../data/unity.ui.h:179
+msgid "Web Apps"
+msgstr "Уеб Приложения"
+
+#: ../data/unitytweak.ui.h:9 ../data/windowmanager.ui.h:92
+#: ../data/overview.ui.h:7 ../data/unity.ui.h:193
+msgid "Additional"
+msgstr "Още"
+
+#: ../data/unitytweak.ui.h:10 ../data/overview.ui.h:8
+msgid "Window Manager"
+msgstr "Диспечер на прозорци"
+
+#: ../data/unitytweak.ui.h:11 ../data/windowmanager.ui.h:32
+#: ../data/overview.ui.h:9 ../data/appearance.ui.h:20 ../data/unity.ui.h:88
+msgid "General"
+msgstr "Общи"
+
+#: ../data/unitytweak.ui.h:12
+msgid "Workspace settings"
+msgstr "Работен плот"
+
+#: ../data/unitytweak.ui.h:13
+msgid "Windows spread"
+msgstr "Режим за преглед"
+
+#: ../data/unitytweak.ui.h:14
+msgid "Windows snapping"
+msgstr "Прилепнали прозорци"
+
+#: ../data/unitytweak.ui.h:15 ../data/windowmanager.ui.h:63
+#: ../data/overview.ui.h:16
+msgid "Hotcorners"
+msgstr "Активни ъгли"
+
+#: ../data/unitytweak.ui.h:16 ../data/overview.ui.h:17
+#: ../data/appearance.ui.h:29 ../data/unity.ui.h:49
+msgid "Appearance"
+msgstr "Оформление"
+
+#: ../data/unitytweak.ui.h:17 ../data/overview.ui.h:18
+#: ../data/appearance.ui.h:8
+msgid "Theme"
+msgstr "Тема"
+
+#: ../data/unitytweak.ui.h:18 ../data/overview.ui.h:19
+#: ../data/appearance.ui.h:12 ../data/unity.ui.h:66
+msgid "Icons"
+msgstr "Иконки"
+
+#: ../data/unitytweak.ui.h:19 ../data/appearance.ui.h:19
+msgid "Cursor"
+msgstr "Курсор"
+
+#: ../data/unitytweak.ui.h:20 ../data/overview.ui.h:21
+#: ../data/appearance.ui.h:43
+msgid "Fonts"
+msgstr "Шрифтове"
+
+#: ../data/unitytweak.ui.h:21
+msgid "Window controls"
+msgstr ""
+
+#: ../data/unitytweak.ui.h:22 ../data/overview.ui.h:24
+msgid "System"
+msgstr "Система"
+
+#: ../data/unitytweak.ui.h:23 ../data/system.ui.h:8
+msgid "Desktop Icons"
+msgstr "Иконки на плота"
+
+#: ../data/unitytweak.ui.h:24 ../data/overview.ui.h:27 ../data/system.ui.h:19
+msgid "Security"
+msgstr "Защита"
+
+#: ../data/unitytweak.ui.h:25 ../data/overview.ui.h:28 ../data/system.ui.h:34
+msgid "Scrolling"
+msgstr "Превъртане"
+
+#: ../data/unitytweak.ui.h:26
+msgid "_Help"
+msgstr "_Помощ"
+
+#: ../data/unitytweak.ui.h:27
+msgid " Overview"
+msgstr " Общ преглед"
+
+#. ! /usr/bin/env python3
+#. !/usr/bin/env python3
+#. -*- coding: utf-8 -*-
+#. 
+#. Team:
+#. J Phani Mahesh <phanimahesh@gmail.com>
+#. Barneedhar (jokerdino) <barneedhar@ubuntu.com>
+#. Amith KK <amithkumaran@gmail.com>
+#. Georgi Karavasilev <motorslav@gmail.com>
+#. Sam Tran <samvtran@gmail.com>
+#. Sam Hewitt <hewittsamuel@gmail.com>
+#. Angel Araya <al.arayaq@gmail.com>
+#. 
+#. Description:
+#. A One-stop configuration tool for Unity.
+#. 
+#. Legal Stuff:
+#. 
+#. This file is a part of Unity Tweak Tool
+#. 
+#. Unity Tweak Tool is free software; you can redistribute it and/or modify it under
+#. the terms of the GNU General Public License as published by the Free Software
+#. Foundation; version 3.
+#. 
+#. Unity Tweak Tool is distributed in the hope that it will be useful, but WITHOUT
+#. ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+#. FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+#. details.
+#. 
+#. You should have received a copy of the GNU General Public License along with
+#. this program; if not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
+#. Any Unity One Sync settings should appear here.
 #: ../data/windowmanager.ui.h:1
 msgid "Zoom"
 msgstr "Мащабиране"
@@ -135,19 +308,14 @@ msgstr "Клавишни комбинации"
 msgid "List of window manager keyboard shortcuts"
 msgstr "Списък на клавишни комбинации за диспечера на прозорците"
 
-#: ../data/windowmanager.ui.h:30 ../data/unity.ui.h:85 ../data/system.ui.h:16
-#: ../data/appearance.ui.h:6
+#: ../data/windowmanager.ui.h:30 ../data/appearance.ui.h:6
+#: ../data/unity.ui.h:85 ../data/system.ui.h:6
 msgid "Restore defaults"
 msgstr "Възстановяване на стандартните настройки"
 
 #: ../data/windowmanager.ui.h:31
 msgid "Restore default window manager settings"
 msgstr "Възстанови първоначалните настройки на диспечера за прозорците"
-
-#: ../data/windowmanager.ui.h:32 ../data/startpage.ui.h:25
-#: ../data/unity.ui.h:88 ../data/appearance.ui.h:20 ../data/unitytweak.ui.h:11
-msgid "General"
-msgstr "Общи"
 
 #: ../data/windowmanager.ui.h:33
 msgid "Enable the window manager to draw multiple workspaces"
@@ -196,7 +364,7 @@ msgstr "Възстанови първоначалните настройки н�
 
 #: ../data/windowmanager.ui.h:44
 msgid "Workspace Settings"
-msgstr "Работни места"
+msgstr "Работни \n места"
 
 #: ../data/windowmanager.ui.h:45
 msgid "Enable the window spread?"
@@ -257,7 +425,7 @@ msgstr "Режим за преглед"
 
 #: ../data/windowmanager.ui.h:57
 msgid "Window snapping:"
-msgstr "Организиране на прозорците:"
+msgstr "Подреждане на прозорците:"
 
 #: ../data/windowmanager.ui.h:58
 msgid "Fill colour:"
@@ -279,18 +447,13 @@ msgstr "Подреждане на прозорците"
 msgid "Hotcorners:"
 msgstr "Активни ъгли:"
 
-#: ../data/windowmanager.ui.h:63 ../data/startpage.ui.h:30
-#: ../data/unitytweak.ui.h:15
-msgid "Hotcorners"
-msgstr "Активни ъгли"
-
 #: ../data/windowmanager.ui.h:64
 msgid "Focus Behaviour"
 msgstr "Метод за фокусиране"
 
 #: ../data/windowmanager.ui.h:65
 msgid "Auto-raise delay:"
-msgstr "Забавяне преди автоматично повдигане на преден план:"
+msgstr "Забавяне преди авто повдигане:"
 
 #: ../data/windowmanager.ui.h:66
 msgid "Set the delay for raising newly focused windows."
@@ -410,11 +573,6 @@ msgstr "Мащабиране"
 msgid "Restore the default settings for the additional options."
 msgstr "Възстанови първоначалните настройки на допълнителните параметри"
 
-#: ../data/windowmanager.ui.h:92 ../data/startpage.ui.h:22
-#: ../data/unity.ui.h:193 ../data/unitytweak.ui.h:9
-msgid "Additional"
-msgstr "Допълнително"
-
 #: ../data/windowmanager.ui.h:93
 msgid "Close window"
 msgstr "Затвори прозореца"
@@ -481,7 +639,7 @@ msgstr "Super+S"
 
 #: ../data/windowmanager.ui.h:109
 msgid "Toggle Desktop"
-msgstr "Превключване между работните плотове"
+msgstr "Показване на плота"
 
 #: ../data/windowmanager.ui.h:110
 msgid "Show Workspaces"
@@ -493,7 +651,7 @@ msgstr "Разпръснати прозорци"
 
 #: ../data/windowmanager.ui.h:112
 msgid "Spread all Windows"
-msgstr "Разпръскване на всиките прозорци"
+msgstr "Показване на всички прозорци"
 
 #: ../data/windowmanager.ui.h:113
 msgid "Do Nothing"
@@ -535,6 +693,48 @@ msgstr "Горната половина"
 msgid "Top Right Corner"
 msgstr "Горния десен ъгъл"
 
+#: ../data/overview.ui.h:10
+msgid ""
+"Workspace\n"
+"Settings"
+msgstr ""
+"Работно място\n"
+"Настройки"
+
+#: ../data/overview.ui.h:12
+msgid ""
+"Window\n"
+"Spread"
+msgstr ""
+"Прозорец\n"
+"Преглед"
+
+#: ../data/overview.ui.h:14
+msgid ""
+"Window\n"
+"Snapping"
+msgstr ""
+"Прозорец\n"
+"Прилепване"
+
+#: ../data/overview.ui.h:20
+msgid "Cursors"
+msgstr ""
+
+#: ../data/overview.ui.h:22
+msgid ""
+"Window\n"
+"Controls"
+msgstr ""
+"Прозорец\n"
+"Настройки"
+
+#: ../data/overview.ui.h:25
+msgid ""
+"Desktop\n"
+"Icons"
+msgstr ""
+
 #: ../data/filechooser-theme.ui.h:1
 msgid "Choose a Theme file to install"
 msgstr "Изберете файл на темата за инсталиране"
@@ -543,189 +743,242 @@ msgstr "Изберете файл на темата за инсталиране"
 msgid "Install Theme"
 msgstr "Инсталиране на Тема"
 
-#: ../unity-tweak-tool.desktop.in.h:1 ../data/unitytweak.ui.h:1
-msgid "Unity Tweak Tool"
-msgstr "Unity Tweak Tool"
+#: ../data/appearance.ui.h:1
+msgid "Available themes"
+msgstr "Налични теми"
 
-#: ../unity-tweak-tool.desktop.in.h:2
-msgid "Configuration frontend for the Unity desktop environment"
-msgstr "Външен интерфейс за десктоп средата на Юнити"
+#: ../data/appearance.ui.h:2
+msgid "List of GTK Themes"
+msgstr "Списък с GTK теми"
 
-#: ../data/startpage.ui.h:1
-msgid "Show the settings for the security."
-msgstr "Покажи настройките за безопастност."
+#: ../data/appearance.ui.h:3
+msgid "GTK Theme"
+msgstr "GTK Тема"
 
-#: ../data/startpage.ui.h:2 ../data/system.ui.h:18 ../data/unitytweak.ui.h:23
-msgid "Desktop Icons"
-msgstr "Икони на работния плот"
+#: ../data/appearance.ui.h:4
+msgid "List of Window decoration themes"
+msgstr "Списък с темите за прозорците"
 
-#: ../data/startpage.ui.h:3
+#: ../data/appearance.ui.h:5
+msgid "Window decoration theme"
+msgstr "Тема за декорацията на прозорците"
+
+#: ../data/appearance.ui.h:7
+msgid "Restore system's default theme configurations"
+msgstr "Възстанови първоначалните настройки на темите"
+
+#: ../data/appearance.ui.h:9
+msgid "List of icon themes"
+msgstr "Списък с темите за иконките"
+
+#: ../data/appearance.ui.h:10
+msgid "Icon theme"
+msgstr "Тема за иконките"
+
+#: ../data/appearance.ui.h:11
+msgid "Restore system's default icon theme configurations"
+msgstr "Възстанови първоначалните настройки на иконките"
+
+#: ../data/appearance.ui.h:13
+msgid "List of cursor themes"
+msgstr "Списък с темите за курсорите"
+
+#: ../data/appearance.ui.h:14
+msgid "Cursor Theme"
+msgstr "Тема за курсора"
+
+#: ../data/appearance.ui.h:15
+msgid "Preferences"
+msgstr "Параметри"
+
+#: ../data/appearance.ui.h:16
+msgid "Use large cursors"
+msgstr "Използване на големи курсори"
+
+#: ../data/appearance.ui.h:17
+msgid "If enabled, the system will use a larger cursor."
+msgstr "Ако тази опция е включена, системата ще използва големи курсори."
+
+#: ../data/appearance.ui.h:18
+msgid "Restore system's default cursor theme configurations"
+msgstr "Възстанови първоначалните настройки на курсорите"
+
+#: ../data/appearance.ui.h:21
+msgid "Select the default font for all applications."
+msgstr "Изберете шрифта по подразбиране за всички програми."
+
+#: ../data/appearance.ui.h:22
+msgid "Default font:"
+msgstr "Шрифт по подразбиране:"
+
+#: ../data/appearance.ui.h:23
+msgid "Select the default font used for reading documents."
+msgstr ""
+"Изберете шрифта по подразбиране, който ще се използва при четенето на "
+"документи."
+
+#: ../data/appearance.ui.h:24
+msgid "Document font:"
+msgstr "Шрифт за документи:"
+
+#: ../data/appearance.ui.h:25
+msgid "Select the default monospace font."
+msgstr "Изберете равно широкият шрифт (с фиксирана ширина) по подразбиране:"
+
+#: ../data/appearance.ui.h:26
+msgid "Monospace font:"
+msgstr "Равноширок шрифт:"
+
+#: ../data/appearance.ui.h:27
+msgid "Select the default font for the window titlebar."
+msgstr "Изберете шрифт по подразбиране за прозорците:"
+
+#: ../data/appearance.ui.h:28
+msgid "Window title font:"
+msgstr "Заглавие на прозорците:"
+
+#: ../data/appearance.ui.h:30
+msgid "Select the type of antialiasing used to render fonts."
+msgstr "Изберете типа на заглаждане използващ се за показване на шрифтове."
+
+#: ../data/appearance.ui.h:31
+msgid "Antialiasing:"
+msgstr "Заглаждане:"
+
+#: ../data/appearance.ui.h:33
+msgid "Grayscale"
+msgstr "Нюанси на сивото"
+
+#: ../data/appearance.ui.h:34
+msgid "RGBA"
+msgstr "RGBA"
+
+#: ../data/appearance.ui.h:35
+msgid "Select the type of hinting to use when rendering fonts"
+msgstr "Изберете вида за подсказките, използван за показване на шрифтовете"
+
+#: ../data/appearance.ui.h:36
+msgid "Slight"
+msgstr "Леко"
+
+#: ../data/appearance.ui.h:37
+msgid "Medium"
+msgstr "Средно"
+
+#: ../data/appearance.ui.h:38
+msgid "Full"
+msgstr "Пълно"
+
+#: ../data/appearance.ui.h:39
+msgid "Hinting:"
+msgstr "Подсказки:"
+
+#: ../data/appearance.ui.h:40
 msgid ""
-"Window\n"
-"Snapping"
+"Select the factor used to enlarge or reduce text display, without changing "
+"font size."
 msgstr ""
-"Прозорец\n"
-"Прилепване"
+"Изберете коефициент, който ще се използва за увеличаване или намаляване "
+"показването на текста, без да се променя размера на шрифта."
 
-#: ../data/startpage.ui.h:5
-msgid ""
-"Window\n"
-"Spread"
+#: ../data/appearance.ui.h:41
+msgid "Text scaling factor:"
+msgstr "Мащабиране:"
+
+#: ../data/appearance.ui.h:42
+msgid "Restore system's default font configurations"
+msgstr "Възстанови първоначалните настройки на шрифтовете"
+
+#: ../data/appearance.ui.h:44
+msgid "Layout:"
+msgstr "Разположение:"
+
+#: ../data/appearance.ui.h:45 ../data/system.ui.h:24
+msgid "Default"
+msgstr "По подразбиране"
+
+#: ../data/appearance.ui.h:46
+msgid "Use the default window button layout."
 msgstr ""
-"Прозорец\n"
-"Преглед"
+"Използвай разположението на бутоните за управление на прозорците по "
+"подразбиране."
 
-#: ../data/startpage.ui.h:7
-msgid ""
-"Workspace\n"
-"Settings"
+#: ../data/appearance.ui.h:47
+msgid "Left"
+msgstr "Отляво"
+
+#: ../data/appearance.ui.h:48
+msgid "Align the window controls to the left side of the window."
+msgstr "Елементите за управление на прозорците да са от лявата страна."
+
+#: ../data/appearance.ui.h:49
+msgid "Right"
+msgstr "Отдясно"
+
+#: ../data/appearance.ui.h:50
+msgid "Align the window controls to the right side of the window."
+msgstr "Елементите за управление на прозорците да са от дясната страна."
+
+#: ../data/appearance.ui.h:51
+msgid "Alignment:"
+msgstr "Подравняване:"
+
+#: ../data/appearance.ui.h:52
+msgid "Custom"
+msgstr "По избор"
+
+#: ../data/appearance.ui.h:53
+msgid "Use a custom window button layout."
 msgstr ""
-"Работно място\n"
-"Настройки"
+"Използвайте персонализирано от вас оформление на бутоните за прозореца."
 
-#: ../data/startpage.ui.h:9
-msgid ""
-"Window\n"
-"Controls"
+#: ../data/appearance.ui.h:54
+msgid "Select a custom window controls layout."
+msgstr "Изберете потребителско оформлението за бутоните за прозореца."
+
+#: ../data/appearance.ui.h:55
+msgid "Current layout"
+msgstr "Текущо разположение"
+
+#: ../data/appearance.ui.h:56
+msgid "Close button only"
+msgstr "Само бутона затвори"
+
+#: ../data/appearance.ui.h:57
+msgid "Close, maximize, window title"
+msgstr "Затвори, разшири, заглавие на прозореца"
+
+#: ../data/appearance.ui.h:58
+msgid "Close, minimize, window title"
+msgstr "Затвори, минимизирай, заглавие на прозореца"
+
+#: ../data/appearance.ui.h:59
+msgid "Close, window title, maximize"
+msgstr "Затвори, заглавие на прозореца, максимизирай"
+
+#: ../data/appearance.ui.h:60
+msgid "Show menu button"
+msgstr "Покажи меню бутона"
+
+#: ../data/appearance.ui.h:61
+msgid "If enabled, show the window menu in the titlebar."
+msgstr "Ако е включено, ще се покаже менюто на прозореца в заглавната лента."
+
+#: ../data/appearance.ui.h:62
+msgid "Restore Defaults"
+msgstr "Възстановяване по подразбиране"
+
+#: ../data/appearance.ui.h:63
+msgid "Restore default window controls settings."
 msgstr ""
-"Прозорец\n"
-"Настройки"
+"Възстанови първоначалните настройки на елементите за управление на "
+"прозорците."
 
-#: ../data/startpage.ui.h:11 ../data/unitytweak.ui.h:3
-msgid "Unity"
-msgstr "Юнити"
+#: ../data/appearance.ui.h:64
+msgid "Window Controls"
+msgstr "Елементи за прозорците"
 
-#: ../data/startpage.ui.h:12
-msgid "Show the Unity launcher settings"
-msgstr "Покажи настройките на Юнити стартера"
-
-#: ../data/startpage.ui.h:13 ../data/unity.ui.h:87 ../data/unitytweak.ui.h:4
-msgid "Launcher"
-msgstr "Стартер"
-
-#: ../data/startpage.ui.h:14
-msgid "Show the Unity Dash settings"
-msgstr "Покажи настройките на главното меню Юнити"
-
-#: ../data/startpage.ui.h:15 ../data/unity.ui.h:111 ../data/unitytweak.ui.h:5
-msgid "Search"
-msgstr "Търсачка"
-
-#: ../data/startpage.ui.h:16
-msgid "Show the Unity Panel settings"
-msgstr "Покажи настройките на Юнити панела"
-
-#: ../data/startpage.ui.h:17 ../data/unity.ui.h:156 ../data/unitytweak.ui.h:6
-msgid "Panel"
-msgstr "Панел"
-
-#: ../data/startpage.ui.h:18
-msgid "Show the Unity Switcher settings"
-msgstr "Покажи настройките на Юнити превключвателя"
-
-#: ../data/startpage.ui.h:19 ../data/unity.ui.h:172 ../data/unitytweak.ui.h:7
-msgid "Switcher"
-msgstr "Превключвател"
-
-#: ../data/startpage.ui.h:20 ../data/unity.ui.h:179 ../data/unitytweak.ui.h:8
-msgid "Web Apps"
-msgstr "Уеб Приложения"
-
-#: ../data/startpage.ui.h:21
-msgid "Show the additional Unity settings"
-msgstr "Покажи допълнителните настройките на Юнити"
-
-#: ../data/startpage.ui.h:23 ../data/unitytweak.ui.h:10
-msgid "Window Manager"
-msgstr "Диспечер на прозорци"
-
-#: ../data/startpage.ui.h:24
-msgid "Show the general settings for the window manager"
-msgstr "Покажи основните настройки на диспечера на прозорците"
-
-#: ../data/startpage.ui.h:26
-msgid "Show the settings for the workspace switcher"
-msgstr "Покажи настройките за превключвателя на работните плотове"
-
-#: ../data/startpage.ui.h:27
-msgid "Show the settings for window spread behaviour"
-msgstr "Покажи настройките за действие в режим на преглед"
-
-#: ../data/startpage.ui.h:28
-msgid "Show the settings for window snapping behaviour"
-msgstr ""
-"Покажи настройки на поведение за организиране на прозорците, когато ги "
-"преместите до ръба на екрана"
-
-#: ../data/startpage.ui.h:29
-msgid "Show the settings for hotcorner behaviour"
-msgstr "Покажи настройки за поведение на ъгловите активации"
-
-#: ../data/startpage.ui.h:31
-msgid "Show the additional settings pane."
-msgstr "Покажи панела с допълнителните настройки."
-
-#: ../data/startpage.ui.h:32 ../data/unity.ui.h:49 ../data/appearance.ui.h:29
-#: ../data/unitytweak.ui.h:16
-msgid "Appearance"
-msgstr "Оформление"
-
-#: ../data/startpage.ui.h:33
-msgid "Show the settings for the global system themes"
-msgstr "Покажи настройките за глобалните теми на системата"
-
-#: ../data/startpage.ui.h:34 ../data/appearance.ui.h:8
-#: ../data/unitytweak.ui.h:17
-msgid "Theme"
-msgstr "Тема"
-
-#: ../data/startpage.ui.h:35
-msgid "Show the settings for the icon themes"
-msgstr "Покажи настройките за иконките"
-
-#: ../data/startpage.ui.h:36 ../data/unity.ui.h:66 ../data/appearance.ui.h:12
-#: ../data/unitytweak.ui.h:18
-msgid "Icons"
-msgstr "Иконки"
-
-#: ../data/startpage.ui.h:37
-msgid "Show the settings for the cursor themes"
-msgstr "Покажи настройките за курсорите"
-
-#: ../data/startpage.ui.h:38 ../data/appearance.ui.h:19
-#: ../data/unitytweak.ui.h:19
-msgid "Cursor"
-msgstr "Курсор"
-
-#: ../data/startpage.ui.h:39
-msgid "Show the settings for the system-wide fonts"
-msgstr "Покажи настройките за общосистемните шрифтове"
-
-#: ../data/startpage.ui.h:40 ../data/appearance.ui.h:43
-#: ../data/unitytweak.ui.h:20
-msgid "Fonts"
-msgstr "Шрифтове"
-
-#: ../data/startpage.ui.h:41 ../data/unitytweak.ui.h:22
-msgid "System"
-msgstr "Система"
-
-#: ../data/startpage.ui.h:42
-msgid "Show the settings for the desktop icons"
-msgstr "Покажи настройките за иконите на работния плот"
-
-#: ../data/startpage.ui.h:43 ../data/system.ui.h:30 ../data/unitytweak.ui.h:24
-msgid "Security"
-msgstr "Безопастност"
-
-#: ../data/startpage.ui.h:44
-msgid "Show the settings for the scrolling."
-msgstr "Покажи настройките за превъртане."
-
-#: ../data/startpage.ui.h:45 ../data/system.ui.h:45 ../data/unitytweak.ui.h:25
-msgid "Scrolling"
-msgstr "Превъртане"
-
+#. ! /usr/bin/env python3
 #: ../data/unity.ui.h:1
 msgid "Invoke HUD"
 msgstr "Отвори допълнителен интерфейсен панел"
@@ -768,7 +1021,7 @@ msgstr "Super+N"
 
 #: ../data/unity.ui.h:11
 msgid "Start switcher"
-msgstr "Отваря превключвателя"
+msgstr ""
 
 #: ../data/unity.ui.h:12
 msgid "Super+Tab"
@@ -876,7 +1129,7 @@ msgstr "Избледняване и плъзгане"
 
 #: ../data/unity.ui.h:40
 msgid "Auto-hide animation:"
-msgstr "Анимация при автоматично скриване:"
+msgstr "Анимация при скриване:"
 
 #: ../data/unity.ui.h:41
 msgid ""
@@ -888,11 +1141,11 @@ msgstr ""
 
 #: ../data/unity.ui.h:42
 msgid "Reveal location:"
-msgstr "Област за показване:"
+msgstr "Отиди в:"
 
 #: ../data/unity.ui.h:43
 msgid "Reveal sensitivity:"
-msgstr "Чувствителност за показването:"
+msgstr "Чувствителност:"
 
 #: ../data/unity.ui.h:44
 msgid "How much pointer \"pressure\" is required to reveal the launcher."
@@ -1509,6 +1762,44 @@ msgid "Restore the default Unity keyboard shortcut settings."
 msgstr ""
 "Възстанови първоначалните настройки на клавишните комбинации за Юнити."
 
+#: ../unity-tweak-tool.py:43
+msgid "Start in the Unity tab"
+msgstr ""
+
+#: ../unity-tweak-tool.py:44
+msgid "Start in the WindowManager tab"
+msgstr ""
+
+#: ../unity-tweak-tool.py:45
+msgid "Start in the appearance tab"
+msgstr ""
+
+#: ../unity-tweak-tool.py:46
+msgid "Start in the system tab"
+msgstr ""
+
+#: ../unity-tweak-tool.py:47
+msgid "Reset Unity, wiping all configuration changes."
+msgstr ""
+
+#: ../unity-tweak-tool.py:61
+msgid ""
+"\n"
+"WARNING: You are about to reset Unity to its default configuration.\n"
+"    This will result in loss of configuration.\n"
+"    It is normal for your desktop to flicker during the process.\n"
+"    Type yes to continue, anything else to exit.\n"
+"    "
+msgstr ""
+
+#: ../unity-tweak-tool.py:67
+msgid "Do you wish to continue?"
+msgstr ""
+
+#: ../unity-tweak-tool.py:70
+msgid "Please log out and log back in."
+msgstr ""
+
 #: ../data/about.ui.h:1
 msgid "Copyright © 2013 Freyja Development team"
 msgstr "Авторски права © 2013 Freyja Development team"
@@ -1527,441 +1818,122 @@ msgstr "Unity Tweak Tool в сайта на Launchpad"
 msgid "GPL3"
 msgstr "GPL3"
 
+#: ../unity-tweak-tool.desktop.in.h:2
+msgid "Configuration frontend for the Unity desktop environment"
+msgstr "Външен интерфейс за десктоп средата на Юнити"
+
 #: ../data/system.ui.h:1
-msgid "Icons on desktop:"
-msgstr "Иконки на работния плот:"
+msgid "Items to display:"
+msgstr ""
 
 #: ../data/system.ui.h:2
-msgid "A list of icons to display on the desktop"
-msgstr "Списък на иконките за показване на работния плот"
-
-#: ../data/system.ui.h:3
-msgid "Display:"
-msgstr "Показване:"
-
-#: ../data/system.ui.h:4
 msgid "Home Folder"
 msgstr "Домашна папка"
 
-#: ../data/system.ui.h:5
-msgid "Show a shortcut to &quot;Home Folder&quot; on the desktop"
-msgstr "Покажи иконката &quot;Домашна папка&quot; на работния плот"
-
-#: ../data/system.ui.h:6
-msgid "Show a shortcut to \"Home Folder\" on the desktop"
-msgstr "Покажи иконката «Домашна папка» на работния плот"
-
-#: ../data/system.ui.h:7
-msgid "Network"
-msgstr "Мрежа"
-
-#: ../data/system.ui.h:8
-msgid "Show a shortcut to &quot;Network&quot; on the desktop"
-msgstr "Покажи иконката &quot;Локална мрежа&quot; на работния плот"
-
-#: ../data/system.ui.h:9
-msgid "Show a shortcut to \"Network\" on the desktop"
-msgstr "Покажи иконката «Локална мрежа» на работния плот"
-
-#: ../data/system.ui.h:10
+#: ../data/system.ui.h:3
 msgid "Rubbish Bin"
 msgstr "Кошче за боклук"
 
-#: ../data/system.ui.h:11
-msgid "Show a shortcut to &quot;Trash&quot; on the desktop"
-msgstr "Покажи иконката &quot;Кошче&quot; на работния плот"
+#: ../data/system.ui.h:4
+msgid "Network"
+msgstr "Мрежа"
 
-#: ../data/system.ui.h:12
-msgid "Show a shortcut to \"Trash\" on the desktop"
-msgstr "Покажи иконката «Кошче» на работния плот"
+#: ../data/system.ui.h:5
+msgid "Mounted Devices"
+msgstr ""
 
-#: ../data/system.ui.h:13
-msgid "Devices"
-msgstr "Оборудоване"
-
-#: ../data/system.ui.h:14
-msgid "Show a shortcut to &quot;Devices&quot; on the desktop"
-msgstr "Покажи иконката &quot;Оборудоване&quot; на работния плот"
-
-#: ../data/system.ui.h:15
-msgid "Show a shortcut to \"Devices\" on the desktop"
-msgstr "Покажи иконката «Оборудоване» на работния плот"
-
-#: ../data/system.ui.h:17
+#: ../data/system.ui.h:7
 msgid "Restore the default configurations for Desktop icons"
 msgstr "Възстанови стандартните настройки за иконките на работния плот"
 
-#: ../data/system.ui.h:19
+#: ../data/system.ui.h:9
+msgid "Enhance system security by disabling:"
+msgstr "Увечличи безопастността чрез забрана на:"
+
+#: ../data/system.ui.h:10
 msgid "Desktop lock"
 msgstr "Заключване на работният плот"
 
-#: ../data/system.ui.h:20
-msgid "If enabled, the user can activate the desktop lock screen."
+#: ../data/system.ui.h:11
+msgid "Disable the desktop lock screen."
 msgstr ""
-"Ако тази опция е включена,, то потребителя ще може да задейства заключването "
-"на екрана."
 
-#: ../data/system.ui.h:21
+#: ../data/system.ui.h:12
 msgid "User log out"
 msgstr "Завършване на сеанса на потребителя"
 
-#: ../data/system.ui.h:22
-msgid "If enabled, users can log out of the session they&apos;re in."
+#: ../data/system.ui.h:13
+msgid "Disable session log out."
 msgstr ""
-"Ако тази опция е включена, потребителите ще могат да завършват сесията, в "
-"която се намират."
 
-#: ../data/system.ui.h:23
-msgid "If enabled, users can log out of the session they're in."
-msgstr ""
-"Ако тази опция е включена, потребителите ще могат да завършват сесията, в "
-"който се намират."
-
-#: ../data/system.ui.h:24
+#: ../data/system.ui.h:14
 msgid "User switching"
 msgstr "Смяна на потребители"
 
-#: ../data/system.ui.h:25
-msgid ""
-"If enabled, allow the user to switch to another account while their session "
-"is active."
+#: ../data/system.ui.h:15
+msgid "Disable fast user switching."
 msgstr ""
-"Ако тази опция е включена, потребителя ще може да премине към друг профил, "
-"оставяйки неговата сесия активна."
 
-#: ../data/system.ui.h:26
+#: ../data/system.ui.h:16
 msgid "Printing"
 msgstr "Принтиране"
 
-#: ../data/system.ui.h:27
-msgid ""
-"If enabled, allow the access to the system&apos;s printers and print setup."
+#: ../data/system.ui.h:17
+msgid "Prevent user access to the system's printers and print setup."
 msgstr ""
-"Ако тази опция е включена, то тя ще даде достъп към системните принтери и "
-"настройките за печат."
 
-#: ../data/system.ui.h:28
-msgid ""
-"If enabled, allow the access to the system's printers and print setup."
-msgstr ""
-"Ако тази опция е включена, то тя ще даде достъп към системните принтери и "
-"настройките за печат."
-
-#: ../data/system.ui.h:29
+#: ../data/system.ui.h:18
 msgid "Restore the default configurations for Security settings"
 msgstr "Възстановяване на настройките за сигурност по подразбиране"
 
-#: ../data/system.ui.h:31
+#: ../data/system.ui.h:20
 msgid "Scrollbars"
 msgstr "Ленти за превъртане"
 
-#: ../data/system.ui.h:32
+#: ../data/system.ui.h:21
 msgid "Legacy"
 msgstr "Предишен вариант"
 
-#: ../data/system.ui.h:33
+#: ../data/system.ui.h:22
 msgid "Overlay "
 msgstr "Наслагване "
 
-#: ../data/system.ui.h:34
+#: ../data/system.ui.h:23
 msgid "Select the behaviour of the overlay scrollbars."
 msgstr "Изберете действие за наслагване плъзгачите"
 
-#: ../data/system.ui.h:35 ../data/appearance.ui.h:45
-msgid "Default"
-msgstr "По подразбиране"
-
-#: ../data/system.ui.h:36
+#: ../data/system.ui.h:25
 msgid "Overlay with mouse"
 msgstr "Наслагване с помощта на мишката"
 
-#: ../data/system.ui.h:37
+#: ../data/system.ui.h:26
 msgid "No overlay"
 msgstr "Без наслагване"
 
-#: ../data/system.ui.h:38
+#: ../data/system.ui.h:27
 msgid "Behaviour:"
 msgstr "Действие:"
 
-#: ../data/system.ui.h:39
+#: ../data/system.ui.h:28
 msgid "Edge"
 msgstr ""
 
-#: ../data/system.ui.h:40
+#: ../data/system.ui.h:29
 msgid "If enabled, edge scrolling is active on touchpads."
 msgstr ""
 
-#: ../data/system.ui.h:41
+#: ../data/system.ui.h:30
 msgid "Two-finger"
 msgstr ""
 
-#: ../data/system.ui.h:42
+#: ../data/system.ui.h:31
 msgid "If enabled, two-finger scrolling is active on multitouch touchpads."
 msgstr ""
 
-#: ../data/system.ui.h:43
+#: ../data/system.ui.h:32
 msgid "Touch scrolling"
 msgstr "Сензорно превъртане"
 
-#: ../data/system.ui.h:44
+#: ../data/system.ui.h:33
 msgid "Horizontal scrolling"
 msgstr "Хоризонтално превъртане"
-
-#: ../data/appearance.ui.h:1
-msgid "Available themes"
-msgstr "Налични теми"
-
-#: ../data/appearance.ui.h:2
-msgid "List of GTK Themes"
-msgstr "Списък с GTK теми"
-
-#: ../data/appearance.ui.h:3
-msgid "GTK Theme"
-msgstr "GTK Тема"
-
-#: ../data/appearance.ui.h:4
-msgid "List of Window decoration themes"
-msgstr "Списък с темите за прозорците"
-
-#: ../data/appearance.ui.h:5
-msgid "Window decoration theme"
-msgstr "Тема за декорацията на прозорците"
-
-#: ../data/appearance.ui.h:7
-msgid "Restore system's default theme configurations"
-msgstr "Възстанови първоначалните настройки на темите"
-
-#: ../data/appearance.ui.h:9
-msgid "List of icon themes"
-msgstr "Списък с темите за иконките"
-
-#: ../data/appearance.ui.h:10
-msgid "Icon theme"
-msgstr "Тема за иконките"
-
-#: ../data/appearance.ui.h:11
-msgid "Restore system's default icon theme configurations"
-msgstr "Възстанови първоначалните настройки на иконките"
-
-#: ../data/appearance.ui.h:13
-msgid "List of cursor themes"
-msgstr "Списък с темите за курсорите"
-
-#: ../data/appearance.ui.h:14
-msgid "Cursor Theme"
-msgstr "Тема за курсора"
-
-#: ../data/appearance.ui.h:15
-msgid "Preferences"
-msgstr "Параметри"
-
-#: ../data/appearance.ui.h:16
-msgid "Use large cursors"
-msgstr "Използване на големи курсори"
-
-#: ../data/appearance.ui.h:17
-msgid "If enabled, the system will use a larger cursor."
-msgstr "Ако тази опция е включена, системата ще използва големи курсори."
-
-#: ../data/appearance.ui.h:18
-msgid "Restore system's default cursor theme configurations"
-msgstr "Възстанови първоначалните настройки на курсорите"
-
-#: ../data/appearance.ui.h:21
-msgid "Select the default font for all applications."
-msgstr "Изберете шрифта по подразбиране за всички програми."
-
-#: ../data/appearance.ui.h:22
-msgid "Default font:"
-msgstr "Шрифт по подразбиране:"
-
-#: ../data/appearance.ui.h:23
-msgid "Select the default font used for reading documents."
-msgstr ""
-"Изберете шрифта по подразбиране, който ще се използва при четенето на "
-"документи."
-
-#: ../data/appearance.ui.h:24
-msgid "Document font:"
-msgstr "Шрифт за документи:"
-
-#: ../data/appearance.ui.h:25
-msgid "Select the default monospace font."
-msgstr "Изберете равно широкият шрифт (с фиксирана ширина) по подразбиране:"
-
-#: ../data/appearance.ui.h:26
-msgid "Monospace font:"
-msgstr "Равноширок шрифт:"
-
-#: ../data/appearance.ui.h:27
-msgid "Select the default font for the window titlebar."
-msgstr "Изберете шрифт по подразбиране за прозорците:"
-
-#: ../data/appearance.ui.h:28
-msgid "Window title font:"
-msgstr "Шрифт за заглавието на прозорците:"
-
-#: ../data/appearance.ui.h:30
-msgid "Select the type of antialiasing used to render fonts."
-msgstr "Изберете типа на заглаждане използващ се за показване на шрифтове."
-
-#: ../data/appearance.ui.h:31
-msgid "Antialiasing:"
-msgstr "Заглаждане:"
-
-#: ../data/appearance.ui.h:33
-msgid "Grayscale"
-msgstr "Нюанси на сивото"
-
-#: ../data/appearance.ui.h:34
-msgid "RGBA"
-msgstr "RGBA"
-
-#: ../data/appearance.ui.h:35
-msgid "Select the type of hinting to use when rendering fonts"
-msgstr "Изберете вида за подсказките, използван за показване на шрифтовете"
-
-#: ../data/appearance.ui.h:36
-msgid "Slight"
-msgstr "Леко"
-
-#: ../data/appearance.ui.h:37
-msgid "Medium"
-msgstr "Средно"
-
-#: ../data/appearance.ui.h:38
-msgid "Full"
-msgstr "Пълно"
-
-#: ../data/appearance.ui.h:39
-msgid "Hinting:"
-msgstr "Подсказки:"
-
-#: ../data/appearance.ui.h:40
-msgid ""
-"Select the factor used to enlarge or reduce text display, without changing "
-"font size."
-msgstr ""
-"Изберете коефициент, който ще се използва за увеличаване или намаляване "
-"показването на текста, без да се променя размера на шрифта."
-
-#: ../data/appearance.ui.h:41
-msgid "Text scaling factor:"
-msgstr "Мащабиране на текста:"
-
-#: ../data/appearance.ui.h:42
-msgid "Restore system's default font configurations"
-msgstr "Възстанови първоначалните настройки на шрифтовете"
-
-#: ../data/appearance.ui.h:44
-msgid "Layout:"
-msgstr "Разположение:"
-
-#: ../data/appearance.ui.h:46
-msgid "Use the default window button layout."
-msgstr ""
-"Използвай разположението на бутоните за управление на прозорците по "
-"подразбиране."
-
-#: ../data/appearance.ui.h:47
-msgid "Left"
-msgstr "Отляво"
-
-#: ../data/appearance.ui.h:48
-msgid "Align the window controls to the left side of the window."
-msgstr "Елементите за управление на прозорците да са от лявата страна."
-
-#: ../data/appearance.ui.h:49
-msgid "Right"
-msgstr "Отдясно"
-
-#: ../data/appearance.ui.h:50
-msgid "Align the window controls to the right side of the window."
-msgstr "Елементите за управление на прозорците да са от дясната страна."
-
-#: ../data/appearance.ui.h:51
-msgid "Alignment:"
-msgstr "Подравняване:"
-
-#: ../data/appearance.ui.h:52
-msgid "Custom"
-msgstr "По избор"
-
-#: ../data/appearance.ui.h:53
-msgid "Use a custom window button layout."
-msgstr ""
-"Използвайте персонализирано от вас оформление на бутоните за прозореца."
-
-#: ../data/appearance.ui.h:54
-msgid "Select a custom window controls layout."
-msgstr "Изберете потребителско оформлението за бутоните за прозореца."
-
-#: ../data/appearance.ui.h:55
-msgid "Current layout"
-msgstr "Текущо разположение"
-
-#: ../data/appearance.ui.h:56
-msgid "Close button only"
-msgstr "Само бутона затвори"
-
-#: ../data/appearance.ui.h:57
-msgid "Close, maximize, window title"
-msgstr "Затвори, разшири, заглавие на прозореца"
-
-#: ../data/appearance.ui.h:58
-msgid "Close, minimize, window title"
-msgstr "Затвори, минимизирай, заглавие на прозореца"
-
-#: ../data/appearance.ui.h:59
-msgid "Close, window title, maximize"
-msgstr "Затвори, заглавие на прозореца, максимизирай"
-
-#: ../data/appearance.ui.h:60
-msgid "Show menu button"
-msgstr "Покажи меню бутона"
-
-#: ../data/appearance.ui.h:61
-msgid "If enabled, show the window menu in the titlebar."
-msgstr "Ако е включено, ще се покаже менюто на прозореца в заглавната лента."
-
-#: ../data/appearance.ui.h:62
-msgid "Restore Defaults"
-msgstr "Възстановяване по подразбиране"
-
-#: ../data/appearance.ui.h:63
-msgid "Restore default window controls settings."
-msgstr ""
-"Възстанови първоначалните настройки на елементите за управление на "
-"прозорците."
-
-#: ../data/appearance.ui.h:64
-msgid "Window Controls"
-msgstr "Елементи за прозорците"
-
-#: ../data/unitytweak.ui.h:2
-msgid "_File"
-msgstr "_Файл"
-
-#: ../data/unitytweak.ui.h:12
-msgid "Workspace settings"
-msgstr "Работен плот"
-
-#: ../data/unitytweak.ui.h:13
-msgid "Windows spread"
-msgstr "Режим за преглед"
-
-#: ../data/unitytweak.ui.h:14
-msgid "Windows snapping"
-msgstr "Прилепнали прозорци"
-
-#: ../data/unitytweak.ui.h:21
-msgid "Window controls"
-msgstr ""
-
-#: ../data/unitytweak.ui.h:26
-msgid "_Help"
-msgstr "_Помощ"
-
-#: ../data/unitytweak.ui.h:27
-msgid " Overview"
-msgstr " Общ преглед"
