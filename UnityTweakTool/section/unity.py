@@ -59,7 +59,8 @@ sw_launcher_hidemode= Switch({
     'path'      : '/org/compiz/profiles/unity/plugins/unityshell/',
     'key'       : 'launcher-hide-mode',
     'type'      : 'int',
-    'map'       : {1:True,0:False},
+    'map'       : defaultdict(lambda:False,{1:True,0:False}),
+# God knows what messed up config users have. -JPM
     'dependants': ['radio_reveal_left',
                    'radio_reveal_topleft',
                    'sc_reveal_sensitivity',
