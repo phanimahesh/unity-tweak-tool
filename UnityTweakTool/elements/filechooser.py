@@ -33,6 +33,7 @@
 import UnityTweakTool.config.data as data
 from gi.repository import Gtk
 import os
+import tarfile,zipfile
 
 import logging
 logger=logging.getLogger('UnityTweakTool.elements.filechooser')
@@ -45,6 +46,7 @@ class FileChooser:
         self.builder.add_from_file(self.ui)
         self.widget=self.builder.get_object('themeselector')
         self.builder.connect_signals(self)
+        self.path = controlObj.path
     def run(self):
         self.widget.run()
     def on_button_cancel_clicked(self,*args,**kwargs):
@@ -55,8 +57,11 @@ class FileChooser:
         file=self.widget.get_filename()
         if file is None:
             return
-        logger.info('Attempting to install %s'%file)
-        logger.warn('Unimplemented logic')
-        # TODO : Get file name and do the installation
+        elif file.endswith(('.tar','.tgz','.tar.gz','.tar.bz2')):
+            with tarfile.open(file,'r') as f:
+                f.extractall(path=self.path)
+        elif file.endswith('.zip'):
+            with zipfile.open(file,'r'):
+                f.extractall(path=self.path)
         self.widget.destroy()
 
